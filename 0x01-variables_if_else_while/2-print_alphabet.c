@@ -16,5 +16,8 @@ int main(void)
 	}
 	putchar('\n');
 
-	return (0);
+	/**
+	 * Return value of main
+	 *
+	 * */
 }
