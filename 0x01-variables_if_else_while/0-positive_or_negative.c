@@ -1,29 +1,35 @@
-#include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
-
+#include <stdio.h>
 /**
-* main - Evaluating random numbers
-*
-* Return: Always 0 (Success)
-*/
-
+ * main - program that shows an if statement
+ *
+ * Return: 0 always
+ */
 int main(void)
+
 {
 
-	int n;
+		int n;
 
-	srand(time(0));
-	n = rand() - RAND_MAX / 2;
 
-	if (n > 0)
-		printf("%d is positive\n", n);
 
-	else if (n == 0)
-		printf("%d is zero\n", n);
+			srand(time(0));
 
-	else
-		printf("%d is negative\n", n);
+				n = rand() - RAND_MAX / 2;
+					if (n > 0)
+					{
+						printf("%d is positive\n", n);
+					}
+					else if (n < 0)
+					{
+						printf("%d is negative\n", n);
+					}
+					else
+					{
+						printf("%d is zero\n", n);
+					}
 
-	return (0);
+					return (0);
+
 }
