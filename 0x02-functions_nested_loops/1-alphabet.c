@@ -4,7 +4,7 @@
  *
  * Return: Always 0
  */
-print_alphabet()
+print_alphabet(void)
 {
 	int i;
 	for(i=65; i<=90; i++)
