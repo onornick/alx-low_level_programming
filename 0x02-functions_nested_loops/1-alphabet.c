@@ -1,9 +1,10 @@
 #include "main.h"
-/*
- * print_alphabet - print the small letters of the alphabet
+/**
+ * print_alphabet - Prints the lowercase alphabet
  *
- * Return: Always 0
+ * Return: void
  */
+
 void print_alphabet(void)
 {
 	int i;
@@ -11,7 +12,7 @@ void print_alphabet(void)
 	for (i = 97; i <= 122; i++)
 	{
 		_putchar(i);
-		_putchar('\n');
 	}
+	_putchar('\n');
 }
 
