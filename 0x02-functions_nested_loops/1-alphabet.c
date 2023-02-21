@@ -1,6 +1,6 @@
 #include "main.h"
 /*
- * main - check the code
+ *print_alphabet - print the small letters of the alphabet
  *
  * Return: Always 0
  */
@@ -8,7 +8,7 @@ void print_alphabet(void)
 {
 	int i;
 
-	for (i = 65; i <= 90; i++)
+	for (i = 97; i <= 122; i++)
 	{
 		_putchar(i);
 	}
