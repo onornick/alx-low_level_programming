@@ -7,17 +7,15 @@
  *
  * Return: Always 0.
  */
-
 void _puts(char *str)
 {
-
 	int len = 0;
 
-        while (*str != '\0')
-        {
-                len++;
+	while (*str != '\0')
+	{
+		len++;
 		_putchar(*str);
-                str++;
-        }
+		str++;
+	}
 	_putchar('\n');
 }
