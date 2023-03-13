@@ -2,6 +2,10 @@
 #include <stdio.h>
 
 /**
+ * main - prints all commandline arguments
+ * @argc: count
+ * @argv: vectors
+ * Return: Always 0
  *
  */
 
