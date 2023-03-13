@@ -14,13 +14,7 @@ int main(int argc, char *argv[])
 {
 	(void)argv;
 
-	if (argc > 1)
-	{
-		printf("%d", argc);
-	}
-	else
-	{
-		printf("%d", 0);
-	}
+	printf("%d", (argc-1));
+
 	return (0);
 }
