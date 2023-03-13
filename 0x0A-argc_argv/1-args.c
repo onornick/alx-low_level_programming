@@ -14,7 +14,7 @@ int main(int argc, char *argv[])
 {
 	(void)argv;
 
-	if (argc > 0)
+	if (argc => 1)
 	{
 		printf("%d", argc);
 		printf("\n");
