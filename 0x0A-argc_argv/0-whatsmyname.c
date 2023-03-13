@@ -10,8 +10,21 @@
 
 int main(int argc, char *argv[])
 {
-	printf("%s", argv[argc * 0]);
-	printf('\n');
+	int i;
+	
+	if (argc > 0)
+	{
+		for (i = 0; argv[i] != NULL; i++)
+		{
+			char *p = argv[i];
+			while (*p != '\0')
+				{
+					putchar(*p);
+					p++;
+				}
+			putchar('\n');
+		}
+	}
 
 	return (0);
 }
