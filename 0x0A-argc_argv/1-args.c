@@ -14,10 +14,13 @@ int main(int argc, char *argv[])
 {
 	(void)argv;
 
-	if (argc => 1)
+	if (argc > 1)
 	{
 		printf("%d", argc);
-		printf("\n");
+	}
+	else
+	{
+		printf("%d", 0);
 	}
 	return (0);
 }
