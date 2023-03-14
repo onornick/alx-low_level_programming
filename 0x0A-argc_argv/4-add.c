@@ -1,24 +1,23 @@
 #include "main.h"
 #include <stdio.h>
+#include <stdlib.h>
 #include <ctype.h>
 
 /**
- * main - adds up cmd arguments
- * @argc: argument count
- * @argv: argument vectors
- * Return: Always 0;
+ * main - Adds up command line arguments
+ * @argc: Argument count
+ * @argv: Argument vectors
  *
- *
+ * Return: 0 if successful, 1 if an error occurred
  */
-
 int main(int argc, char *argv[])
 {
-	int result;
-	int i, j;
+	int result = 0, i, j;
 
-	if (argc == 1)
+	if (argc < 2)
 	{
-		printf("%d\n", 0);
+		printf("%d\n", result);
+		return (0);
 	}
 
 	for (i = 1; i < argc; i++)
@@ -30,13 +29,11 @@ int main(int argc, char *argv[])
 				printf("%s\n", "Error");
 				return (1);
 			}
-
 		}
 		result += atoi(argv[i]);
-
-
-
 	}
-	printf("%d", result);
+
+	printf("%d\n", result);
 	return (0);
 }
+
