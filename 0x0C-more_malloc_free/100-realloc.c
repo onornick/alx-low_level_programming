@@ -1,54 +1,50 @@
-#include "main.h"
-#include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
-
+#include "main.h"
 /**
- * simple_print_buffer - prints buffer in hexa
- * @buffer: the address of memory to print
- * @size: the size of the memory to print
- *
- * Return: Nothing.
+ * _realloc - reallocates a memory block using malloc and free
+ * @ptr: pointer to the memory previously allocated with a call
+ * to malloc i.e. malloc(old_size)
+ * @old_size: the size of the allocated space for ptr
+ * @new_size: the new size of the new memory block
+ * Return: if new_size > old_size, added memory should not be initialised
+ * if new_size == old_size, return ptr
+ * if ptr is NULL call == malloc(new_size) for all values of old and new size
+ * if new_size=0 && ptr != NULL, call = free(ptr) and Return NULL
  */
-void simple_print_buffer(char *buffer, unsigned int size)
+void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
 {
-    unsigned int i;
+	char *ptr1, *old_ptr;
+	unsigned int i;
 
-    i = 0;
-    while (i < size)
-    {
-        if (i % 10)
-        {
-            printf(" ");
-        }
-        if (!(i % 10) && i)
-        {
-            printf("\n");
-        }
-        printf("0x%02x", buffer[i]);
-        i++;
-    }
-    printf("\n");
-}
+	if (new_size == old_size)
+		return (ptr);
 
-/**
- * main - check the code for
- *
- * Return: Always 0.
- */
-int main(void)
-{
-    char *p;
-    int i;
+	if (new_size == 0 && ptr != NULL)
+	{
+		free(ptr);
+		return (NULL);
+	}
 
-    p = malloc(sizeof(char) * 10);
-    p = _realloc(p, sizeof(char) * 10, sizeof(char) * 98);
-    i = 0;
-    while (i < 98)
-    {
-        p[i++] = 98;
-    }
-    simple_print_buffer(p, 98);
-    free(p);
-    return (0);
+	if (ptr == NULL)
+		return (malloc(new_size));
+	ptr1 = malloc(new_size);
+
+	if (!ptr1)
+		return (NULL);
+
+	old_ptr = ptr;
+
+	if (new_size < old_size)
+	{
+		for (i = 0; i < new_size; i++)
+			ptr1[i] = old_ptr[i];
+	}
+
+	if (new_size > old_size)
+	{
+		for (i = 0; i < old_size; i++)
+			ptr1[i] = old_ptr[i];
+	}
+	free(ptr);
+	return (ptr1);
 }
