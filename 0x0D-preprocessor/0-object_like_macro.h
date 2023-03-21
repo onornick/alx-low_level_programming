@@ -1,10 +1,9 @@
 #include <stdio.h>
 #include "main.h"
-#define SIZE 1024
+/* SIZE calculates the absolute value of a number */
 
-/**
- *
- *
- */
+#ifndef
+#define SIZE 1024
+#endif
 
 
