@@ -1,9 +1,9 @@
-#include <stdio.h>
-#include "main.h"
+#ifndef OBJECT_LIKE_MACRO_H
+#define OBJECT_LIKE_MACRO_H
+
+
 /* SIZE calculates the absolute value of a number */
 
-#ifndef
 #define SIZE 1024
+
 #endif
-
-
