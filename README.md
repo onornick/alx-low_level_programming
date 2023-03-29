@@ -1,1 +1,1 @@
-My first readme
+This repository contains programs written for the low-level programming and algorithm track at ALX-Africa Software Engineering. In these projects, I am learning about data structures, algorithms, and other low-level programming concepts while working in the C language. The specific list of projects contained is as follows:
