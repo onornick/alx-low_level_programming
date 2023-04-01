@@ -3,8 +3,7 @@
 /**
  * b4_main - Constructor function that executes before main()
  *
- * Description: This function is executed before the main() function is called.
- * It prints a message to the console.
+ * Description: This function is executed before the main().
  */
 void b4_main(void) __attribute__((constructor));
 
