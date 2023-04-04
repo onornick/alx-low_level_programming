@@ -2,6 +2,9 @@
 #include <stdlib.h>
 
 /**
+ * free_listint - frees a listint_t list.
+ * @head: first node
+ * Return: 0
  *
  */
 
