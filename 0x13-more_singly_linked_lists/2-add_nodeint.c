@@ -1,6 +1,10 @@
 #include "lists.h"
 #include <stdlib.h>
 /**
+ * add_nodeint - adds a new node at the beginning of a listint_t list
+ * @head: head pointer
+ * @n: data
+ * Return: returns newly installed node.
  *
  */
 
