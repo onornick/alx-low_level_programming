@@ -2,6 +2,9 @@
 #include <stdlib.h>
 
 /**
+ * sum_listint - returns sum of all data n of list
+ * @head: pointer to the first node
+ * Return: sum
  *
  */
 
