@@ -3,7 +3,7 @@
  * get_bit - get bit within index
  * @n: param
  * @index: index in range
- * Return: bit 0 
+ * Return: bit 0
  */
 
 int get_bit(unsigned long int n, unsigned int index)
