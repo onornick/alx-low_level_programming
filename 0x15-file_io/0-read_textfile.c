@@ -7,8 +7,7 @@
  */
 ssize_t read_textfile(const char *filename, size_t letters)
 {
-	FILE *file;
-	int i;
+	int file;
 	ssize_t lines;
 	char *buffer;
 
@@ -17,33 +16,30 @@ ssize_t read_textfile(const char *filename, size_t letters)
 		return (0);
 	}
 
-	file = fopen(filename, "r");
-	if (file == NULL)
+	if ((file = open(filename, O_RDONLY)) == -1)
 	{
 		return (0);
 	}
+
 	if (chmod(filename, S_IRUSR | S_IWUSR) == -1)
 	{
-		fclose(file);
+		close(file);
 		return (0);
 	}
 	buffer = malloc(sizeof(char) * letters);
 	if (!buffer)
 	{
-		fclose(file);
+		close(file);
 		return (0);
 	}
-	lines = fread(buffer, sizeof(char), letters, file);
+	lines = read(file, buffer, letters);
 	if (lines == -1)
 	{
 		return (0);
 	}
-	while (buffer[i] != '\0')
-	{
-		_putchar(buffer[i]);
-		i++;
-	}
-	fclose(file);
+
+	write (STDOUT_FILENO, buffer, lines);
+	close(file);
 	free(buffer);
 	return (lines);
 }
