@@ -18,9 +18,13 @@ ssize_t read_textfile(const char *filename, size_t letters)
 	}
 
 	file = fopen(filename, "r");
-
 	if (file == NULL)
 	{
+		return (0);
+	}
+	if (chmod(filename, S_IRUSR | S_IWUSR) == -1)
+	{
+		fclose(file);
 		return (0);
 	}
 	buffer = malloc(sizeof(char) * letters);
@@ -28,12 +32,10 @@ ssize_t read_textfile(const char *filename, size_t letters)
 	{
 		fclose(file);
 		return (0);
+	}
 	lines = fread(buffer, sizeof(char), letters, file);
-
 	if (lines == -1)
 	{
-		fclose(file);
-		free(buffer);
 		return (0);
 	}
 	while (buffer[i] != '\0')
