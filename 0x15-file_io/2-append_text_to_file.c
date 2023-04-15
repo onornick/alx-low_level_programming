@@ -14,10 +14,9 @@ int append_text_to_file(const char *filename, char *text_content)
 	if (!filename)
 		return (-1);
 
-	fd = open(filename, O_WRONLY | O_CREAT | O_EXCL, 0);
+	fd = open(filename, O_WRONLY | O_APPEND);
 	if (fd == -1)
 	{
-		printf("holla");
 		return (-1);
 	}
 
@@ -29,7 +28,6 @@ int append_text_to_file(const char *filename, char *text_content)
 	buffer = malloc(sizeof(char) * text_size);
         if (buffer == NULL)
 	{
-		printf("holla1");
                 return (-1);
 	}
 
