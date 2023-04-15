@@ -1,7 +1,10 @@
 #include "main.h"
 
 /**
- *
+ * append_text_to_file - append text and only if file exists
+ * @filename: file
+ * @text_content: appends this content into file
+ * Return: 1 on success, -1 on error
  */
 
 int append_text_to_file(const char *filename, char *text_content)
@@ -19,7 +22,7 @@ int append_text_to_file(const char *filename, char *text_content)
 		return (-1);
 	}
 
-	if (text_content ==NULL)
+	if (text_content == NULL)
 	{
 		close(fd);
 		return (-1);
