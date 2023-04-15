@@ -9,7 +9,8 @@
 int create_file(const char *filename, char *text_content)
 {
 	ssize_t byte_write;
-	int file_descriptor, text_size;
+	int file_descriptor;
+	int text_size = 0;
 
 	if (!filename)
 		return (-1);
