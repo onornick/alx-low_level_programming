@@ -5,51 +5,46 @@
  * @text_content: writes this content into file
  * Return: 1 on success, -1 on error
  */
+
 int create_file(const char *filename, char *text_content)
 {
-	int file_descriptor;
-	int lines;
+	char *buffer;
+	ssize_t read_lines;
+	int file_descriptor, text_size;
 
 	if (!filename)
 		return (-1);
 
-	file_descriptor = open(filename, O_CREAT | O_WRONLY | O_TRUNC, 0600);
-	if (file_descriptor == -1)
-		return (-1);
-	if (chmod(filename, S_IRUSR | S_IWUSR) == -1)
+	file_descriptor = open(filename,
+			O_WRONLY | O_CREAT | O_TRUNC,
+			S_IRUSR | S_IWUSR);
+
+	if (!file_descriptor)
 	{
-		fclose(file);
+		close(file_descriptor);
+		return (-1);
+	}
+	if (chmod(filename, S_IRUSR | S_IWUSR) == -1)
+		return (-1);
+
+	while (text_content[text_size] != '\0')
+	{
+		text_size++;
+	}
+	buffer = malloc((sizeof(char)) * (text_size));
+	if (buffer == NULL)
+	{
+		close(file_descriptor);
 		return (0);
 	}
-
-	if (!text_content)
+	read_lines = read(file_descriptor, buffer, text_size);
+	if (read_lines == -1)
 	{
-		close(file_descriptor);
 		return (1);
 	}
-	lines = write(file_descriptor, text_content, _strlen(text_content));
-	if (lines == -1 || lines != _strlen(text_content))
-	{
-		close(file_descriptor);
-		return (-1);
-	}
+
+	write(STDOUT_FILENO, buffer, read_lines);
 	close(file_descriptor);
-	return (1);
+
+	return (0);
 }
-
-
-/**
- * _strlen -returns length of string
- * @str: string
- * Return: length of string
- */
-int _strlen(char *str)
-{
-        int len;
-
-        for (len = 0; str[len] != '\0'; len++)
-                ;
-
-        return (len);
-}
-
