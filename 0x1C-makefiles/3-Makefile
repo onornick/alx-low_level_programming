@@ -1,0 +1,26 @@
+CC = gcc
+SRC = school.c main.c
+OBJ = $(SRC:.c=.o)
+NAME = school
+RM =  rm -f
+
+# make all == makes executable
+all: $(OBJ)
+	$(CC) $(OBJ) -o $(NAME)
+
+# delete all temp files
+clean:
+	$(RM) *~ $(NAME)
+
+# delete all object files
+oclean:
+	$(RM) $(OBJ)
+
+# delete all tmp files, executables and object files
+fclean: clean oclean
+
+# delete all and recompile all source files
+re: oclean all
+
+
+.PHONY: all clean oclean fclean
