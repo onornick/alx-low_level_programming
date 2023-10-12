@@ -28,12 +28,10 @@ int binary_search(int *array, size_t size, int value)
 		if (array[mid] < value)
 		{
 			l = mid + 1;
-			mid = (l + r) / 2;
 		}
 		else if (array[mid] > value)
 		{
 			r = mid - 1;
-			mid = (l + r) / 2;
 		}
 		else
 		{
