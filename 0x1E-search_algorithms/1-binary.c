@@ -23,11 +23,7 @@ int binary_search(int *array, size_t size, int value)
 		{
 			printf("%ld%s", x, x == r ? "\n" : ", ");
 		}
-		if (array[mid] == value)
-		{
-			return (mid);
-		}
-		else if (array[mid] < value)
+		if (array[mid] < value)
 		{
 			l = mid + 1;
 			mid = (l + r) / 2;
@@ -36,6 +32,10 @@ int binary_search(int *array, size_t size, int value)
 		{
 			r = mid - 1;
 			mid = (l + r) / 2;
+		}
+		else
+		{
+			return (mid);
 		}
 	}
 
